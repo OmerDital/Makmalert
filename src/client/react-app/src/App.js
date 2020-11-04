@@ -1,14 +1,13 @@
+import Grid from '@material-ui/core/Grid';
+import UsersScreen from './users-screen';
+
 import './App.css';
-import { CssBaseline } from '@material-ui/core';
-import UsersScreen from './users-screen'
 
 function App() {
   return (
-    <CssBaseline>
-      
-        <UsersScreen />
-      
-    </CssBaseline>
+    <Grid class="root">
+      <UsersScreen />
+    </Grid>
   );
 }
 
