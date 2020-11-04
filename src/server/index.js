@@ -7,6 +7,8 @@ import morgan from 'morgan';
 import errorHandler from 'strong-error-handler';
 import process from 'process';
 import api from './api';
+import socketIo from 'socket.io';
+import http from 'http';
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -37,6 +39,25 @@ app.use(
   }),
 );
 
-app.listen(PORT, () => {
+const server = http.createServer(app);
+const io = socketIo(server);
+
+io.on("connection", (socket) => {
+  getApiAndEmit(socket);
+  console.log("New client connected");
+
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
+    clearInterval(interval);
+  });
+});
+
+const getApiAndEmit = socket => {
+  const response = new Date();
+  // Emitting a new message. Will be consumed by the client
+  socket.emit("FromAPI", response);
+};
+
+server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
