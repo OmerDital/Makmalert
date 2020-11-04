@@ -1,0 +1,40 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Makmalert server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server-dev": "nodemon --exec babel-node --inspect ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmerDital/Makmalert.git"
+  },
+  "author": "Team #3",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OmerDital/Makmalert/issues"
+  },
+  "homepage": "https://github.com/OmerDital/Makmalert#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-async-router": "^0.1.15",
+    "helmet": "^3.22.0",
+    "mongoose": "^5.10.11",
+    "morgan": "^1.10.0",
+    "strong-error-handler": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.1",
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.6"
+  }
+}
