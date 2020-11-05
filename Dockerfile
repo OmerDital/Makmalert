@@ -1,5 +1,5 @@
 FROM node:latest
 WORKDIR /opt/app/server
-COPY server .
+COPY ./src/server .
 RUN npm install
 CMD ["npm", "run", "server-dev"]
