@@ -1,6 +1,5 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -28,8 +27,6 @@ const inProduction = () => process.env.NODE_ENV === 'production';
 if (!inProduction()) {
   app.use(morgan('dev'));
 }
-
-mongoose.connect('mongodb://localhost:27017/makmalert', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const server = http.createServer(app);
 const io = socketIo(server);
