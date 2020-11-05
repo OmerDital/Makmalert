@@ -4,7 +4,6 @@ import logo from '../../assets/icon.png';
 import ButtonList from './componenets/ButtonList';
 
 const users = ['נגה לבן', 'ספיר מועלם', 'עידן שוסטר'];
-
 const groups = ['תוכניתנים', 'בודקים', 'PM'];
 
 const UsersScreen = () => {

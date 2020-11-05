@@ -25,6 +25,7 @@
     "helmet": "^3.22.0",
     "mongoose": "^5.10.11",
     "morgan": "^1.10.0",
+    "socket.io": "^2.3.0",
     "strong-error-handler": "^4.0.0"
   },
   "devDependencies": {

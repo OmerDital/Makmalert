@@ -7,9 +7,12 @@ import morgan from 'morgan';
 import errorHandler from 'strong-error-handler';
 import process from 'process';
 import api from './api';
+import socketIo from 'socket.io';
+import http from 'http';
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+const clients = [];
 
 const corsOptions = {
   origin: 'http://localhost:3000',
@@ -28,7 +31,10 @@ if (!inProduction()) {
 
 mongoose.connect('mongodb://localhost:27017/makmalert', { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.use('/api', api);
+const server = http.createServer(app);
+const io = socketIo(server);
+
+app.use('/api', api(io));
 
 app.use(
   errorHandler({
@@ -37,6 +43,24 @@ app.use(
   }),
 );
 
-app.listen(PORT, () => {
+io.on("connection", socket => {
+  storeCLient(socket);
+  console.log("New client connected");
+
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
+    clearInterval(interval);
+  });
+});
+
+const storeCLient = socket => {
+  const user = socket.handshake.query;
+
+  socket.join(user.name);
+  clients.push(user);
+  socket.to(user.name).emit("FromAPI", user);
+};
+
+server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

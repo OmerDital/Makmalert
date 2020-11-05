@@ -1,8 +1,11 @@
 import { Router } from 'express';
-import user from './user';
+import alert from './alert';
 
-const apiRouter = Router();
+const apiRouter = io => {
+    const router = Router();
 
-apiRouter.use('/user', user);
+    router.use('/alert', alert(io));
 
+    return router;
+}
 export default apiRouter;
