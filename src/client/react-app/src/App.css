@@ -7,39 +7,3 @@
   color: white;
   text-align: center;
 }
-
-.user-screen {
-  padding: 50px;
-  flex-grow: 1;
-}
-
-.logo {
-  height: 100px;
-  width: 100px;
-}
-
-.user-header {
-  color: #ffc107;
-  text-align: right;
-}
-
-.list {
-  width: 400px;
-}
-
-.list-item {
-  background-color: rgb(40, 44, 52);
-  padding: 5px;
-  margin-bottom: 7px;
-}
-
-.list-item :hover {
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.new-list-item{
-  color: rgb(143, 170, 220);
-  border-style: solid;
-  border-color: rgb(143, 170, 220);
-}
