@@ -1,7 +1,9 @@
 import React from 'react';
 import { Grid, Button, makeStyles, createStyles } from '@material-ui/core';
-import logo from '../../assets/icon.png';
+import {NavLink} from 'react-router-dom';
+
 import ButtonList from './componenets/ButtonList';
+import AppHeader from '../AppHeader';
 
 const users = ['נגה לבן', 'ספיר מועלם', 'עידן שוסטר'];
 const groups = ['תוכניתנים', 'בודקים', 'PM'];
@@ -11,14 +13,7 @@ const UsersScreen = () => {
   return (
     <>
       <Grid className={classes.userScreen} container direction='column'>
-        <Grid container spacing={4} alignItems='center'>
-          <Grid item>
-            <img className={classes.logo} src={logo}></img>
-          </Grid>
-          <Grid>
-            <h2 className={classes.userHeader}>שלום עומר דיטל, למי תרצה לשלוח התראה?</h2>
-          </Grid>
-        </Grid>
+        <AppHeader headline='שלום עומר דיטל, למי תרצה לשלוח התראה?'/>
         <br></br>
         <Grid container direction='row' justify='space-around'>
           <Grid item direction='column'>
@@ -31,7 +26,7 @@ const UsersScreen = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Button className={classes.alertButton} variant='outlined' color='primary'>
+      <Button className={classes.alertButton} variant='outlined' color='primary' component={NavLink} to="/distributeAlert">
         שלח התראה
       </Button>
     </>
@@ -44,19 +39,11 @@ const useStyles = makeStyles(() =>
       padding: '50px',
       flexGrow: 1,
     },
-    userHeader: {
-      color: '#ffc107',
-      textAlign: 'right',
-    },
-    logo: {
-      height: '100px',
-      width: '100px',
-    },
     alertButton: {
       position: 'absolute',
       right: '30px',
-      bottom: '30px'
-    }
+      bottom: '30px',
+    },
   })
 );
 
