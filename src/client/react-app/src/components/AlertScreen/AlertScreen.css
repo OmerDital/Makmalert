@@ -1,0 +1,37 @@
+.alert-screen {
+  text-align: center;
+  padding: 70px;
+  flex-grow: 1;
+}
+
+.pigeon {
+  height: 550px;
+  width: 550px;
+}
+
+.speach-bubble {
+  width: 300px;
+  margin: 50px auto;
+  border-radius: 15px;
+  background:white;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  font-weight: 900;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  position: relative;
+  padding-top: 100px;
+}
+
+.left-side:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 15px solid transparent;
+  border-right: 15px solid white;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid white;
+  left: -16px;
+  top: 100px;
+}
