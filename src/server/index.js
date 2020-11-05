@@ -53,7 +53,7 @@ io.on("connection", (socket) => {
 });
 
 const getApiAndEmit = socket => {
-  const response = new Date();
+  const response = socket.handshake.query;
   // Emitting a new message. Will be consumed by the client
   socket.emit("FromAPI", response);
 };
